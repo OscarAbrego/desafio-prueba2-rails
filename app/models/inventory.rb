@@ -3,6 +3,9 @@ class Inventory < ActiveRecord::Base
   has_one :work
   validate :valid_size
 
+  scope :size_x, -> (x) {
+    where(:size => x)
+  }
 
   def valid_size
     if self.size.nil? || self.size <= 0

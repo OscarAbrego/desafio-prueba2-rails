@@ -4,6 +4,12 @@ class Work < ActiveRecord::Base
 
   validate :user_valid
 
+  scope :last_five, -> {
+    last(5)
+  }
+  scope :no_inventory, -> {
+    where(:inventory => nil)
+  }
   def user_valid
     if self.user_id.nil?
       errors.add(:user_id, 'does not exist')
