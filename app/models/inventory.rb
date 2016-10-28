@@ -1,6 +1,6 @@
 class Inventory < ActiveRecord::Base
   belongs_to :category
-  has_one :work
+  has_one :work, dependent: :delete_all
   validate :valid_size
 
   scope :size_x, -> (x) {
