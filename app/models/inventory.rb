@@ -6,7 +6,7 @@ class Inventory < ActiveRecord::Base
 
   def valid_size
     if self.size.nil? || self.size <= 0
-      errors.add(:size, 'is an imposible value, lower than zero')
+      errors.add(:size, 'is an imposible value,  lower than zero')
     end
   end
 end
